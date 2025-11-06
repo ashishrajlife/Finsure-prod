@@ -1,17 +1,20 @@
-/* ----- POPPINS FONT Link ----- */
+
+/* ----- GOOGLE FONTS IMPORT ----- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* ----- VARIABLES ----- */
 :root{
-    --body-color: rgb(250, 250, 250);
-    --color-white: rgb(255, 255, 255);
-    --text-color-second: rgb(68, 68, 68);
-    --text-color-third: rgb(30, 159, 171);
-    --first-color: rgb(110, 87, 224);
-    --first-color-hover: rgb(40, 91, 212);
-    --second-color: rgb(0, 201, 255);
-    --third-color: rgb(192, 166, 49);
-    --first-shadow-color: rgba(0, 0, 0, 0.1);
+    --body-color: rgb(24, 24, 24); /* Dark gray background */
+    --color-white: rgb(255, 255, 0); /* Yellow for text */
+    --text-color-second: rgb(255, 255, 150); /* Light yellow */
+    --text-color-third: rgb(255, 255, 100); /* Bright yellow */
+    --first-color: rgb(255, 255, 0); /* Yellow */
+    --first-color-hover: rgb(255, 255, 150); /* Light yellow hover */
+    --second-color: rgb(255, 215, 0); /* Golden yellow */
+    --third-color: rgb(255, 255, 100); /* Yellow accent */
+    --first-shadow-color: rgba(255, 255, 0, 0.2); /* Yellow shadow */
+    --card-bg: rgb(60, 60, 60); /* Dark gray cards */
+    --nav-bg: rgb(255, 255, 255); /* Slightly lighter gray for nav */
 }
 
 /* ----- BASE ----- */
@@ -33,14 +36,14 @@ html{
     border-radius: 25px;
 }
 ::-webkit-scrollbar-track{
-    background: #f1f1f1;
+    background: #333;
 }
 ::-webkit-scrollbar-thumb{
-    background: #ccc;
+    background: #ff0;
     border-radius: 30px;
 }
 ::-webkit-scrollbar-thumb:hover{
-    background: #bbb;
+    background: #ffcc00;
 }
 
 /* ---##-- REUSABLE CSS --##--- */
@@ -49,7 +52,8 @@ html{
 .btn{
     font-weight: 500;
     padding: 12px 20px;
-    background: #efefef;
+    background: var(--first-color);
+    color: var(--body-color);
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -59,23 +63,26 @@ html{
     margin-left: 10px;
 }
 .btn:hover{
-    background: var(--second-color);
-    color: var(--color-white);
+    background: var(--first-color-hover);
+    color: var(--body-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 0, 0.3);
 }
 
 /* ----- GLOBAL ICONS DESIGN ----- */
 i{
     font-size: 16px;
+    color: var(--color-white);
 }
 
 /* ------- BASE -------- */
 body{
     background: var(--body-color);
+    color: var(--color-white);
 }
 .container{
     width: 100%;
     position: relative;
-    /* background-color: #777; */
 }
 
 /* ----- NAVIGATION BAR ----- */
@@ -84,34 +91,33 @@ nav{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 90px;
-    line-height: 90px;
-    background: var(--body-color);
+    height: 72px;
+    line-height: 72px;
+    background: white;
     padding-inline: 9vw;
     transition: .3s;
     z-index: 100;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-}
-.nav-logo{
-   position: relative;
+    box-shadow: 0 1px 6px rgba(255, 255, 0, 0.2);
+    border-bottom: 2px solid var(--first-color);
 }
 
 .nav-logo img{
+    /* margin-top: 8px; */
     height: 70px;
+    width: 100px;
     object-fit: fill;
-
 }
 .nav-name{
     font-size: 30px;
     font-weight: 600;
-    color: var(--text-color-third);
+    color: var(--color-white);
 }
 .nav-logo span{
     position: absolute;
     top: -15px;
     right: -20px;
     font-size: 5em;
-    color: var(--text-color-second);
+    color: var(--color-white);
 }
 .nav-menu, .nav_menu_list{
     display: flex;
@@ -122,10 +128,14 @@ nav{
 }
 .nav-link{
     text-decoration: none;
-    color: var(--text-color-second);
+    color: black;
     font-weight: 500;
     padding-inline: 15px;
     margin-inline: 20px;
+    transition: .3s;
+}
+.nav-link:hover{
+    color:darkblue;
 }
 .nav-menu-btn{
     display: none;
@@ -133,22 +143,7 @@ nav{
 .nav-menu-btn i{
     font-size: 28px;
     cursor: pointer;
-}
-.active-link{
-    position: relative;
-    color: var(--first-color);
-    transition: .3;
-}
-.active-link::after{
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -15px;
-    transform: translate(-50%, -50%);
-    width: 5px;
-    height: 5px;
-    background: var(--first-color);
-    border-radius: 50%;
+    color: var(--color-white);
 }
 
 /* ----- WRAPPER DESIGN ----- */
@@ -179,22 +174,25 @@ nav{
 }
 .featured-text-card span{
     background: var(--third-color);
-    color: var(--color-white);
+    color: var(--body-color);
     padding: 3px 8px;
     font-size: 12px;
     border-radius: 5px;
+    font-weight: 600;
 }
 .featured-name{
     font-size: 50px;
-    font-weight: 600;
-    color: var(--text-color-second);
+    font-weight: 200;
+    color: var(--color-white);
+    font-family: 'Poppins', sans-serif;
     margin-block: 20px;
+    text-shadow: 2px 2px 4px rgba(144, 144, 144, 0.5);
 }
 .typedText{
     text-transform: capitalize;
-    color: var(--text-color-third);
+    color: var(--second-color);
     font-size: 50px;
-    font-weight: 600;
+    font-weight: 400;
 }
 .featured-text-info{
     font-size: 18px;
@@ -212,11 +210,14 @@ nav{
     gap: 30px;
     width: 50%;
     min-height: 80vh;
+    margin-top:15vh;
 }
 
 .featured-images .image {
     width: 200px;
     height: 200px;
+    border: 3px solid var(--first-color);
+    background: rgb(8, 8, 8);
 }
 
 .image{
@@ -229,9 +230,10 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 3px solid var(--first-color);
 }
 .image img{
-    width: 200px;
+        width: 170px;
     height: 150px;
     object-fit: contain;
 }
@@ -239,13 +241,15 @@ nav{
     50%{
         transform: translateY(10px);
         border-radius: 45% 55% 45% 55%;
+        box-shadow: 0 0 20px rgba(255, 255, 0, 0.4);
     }
 }
 
 /* ----- MAIN BOX ----- */
 .section{
-    padding-block: 100px; /* Changed from 5em to 100px for consistent spacing */
-    margin: 0; /* Remove any default margins */
+    padding-block: 100px;
+    margin: 0;
+    background: var(--body-color);
 }
 .row{
     display: flex;
@@ -261,20 +265,23 @@ nav{
 /* -- ## --- RESUABLE CSS -- ## -- */
 .top-header{
     text-align: center;
-    margin-bottom: 3em; /* Reduced margin for tighter spacing */
+    margin-bottom: 3em;
 }
 .top-header h1{
-    font-weight: 600;
-    color: var(--text-color-second);
+    font-weight: 700;
+    color: var(--color-white);
     margin-bottom: 10px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .top-header span{
-    color: #999;
+    color: var(--text-color-second);
+    font-size: 1.1em;
 }
 h3{
     font-size: 20px;
     font-weight: 600;
-    color: var(--text-color-second);
+    color: var(--color-white);
     margin-bottom: 15px;
 }
 
@@ -287,16 +294,21 @@ h3{
     padding-block: 30px 70px;
     padding-inline: 20px;
     width: 100%;
-    background: var(--color-white);
+    background: var(--card-bg);
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     border-radius: 20px;
+    border: 1px solid var(--first-color);
 }
 .about-info p{
     text-align: center;
     font-size: 15px;
-    color: #777;
+    color: var(--text-color-second);
     line-height: 1.6;
 }
+
+/* #header{
+        height: 72px;
+} */
 
 /* ----- ABOUT / SKILLS BOX ----- */
 .skills-box{
@@ -313,9 +325,10 @@ h3{
 .skills-list span{
     font-size: 14px;
     background: var(--first-color);
-    color: var(--color-white);
+    color: var(--body-color);
     padding: 2px 10px;
     border-radius: 5px;
+    font-weight: 600;
 }
 
 /* ----- PROJECTS BOX ----- */
@@ -334,26 +347,28 @@ h3{
     flex-direction: column;
     width: 30%;
     height: 250px;
-    background: var(--color-white);
+    background: var(--card-bg);
     border-radius: 20px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
+    border: 1px solid var(--first-color);
+    transition: .4s;
 }
 .project-box>i{
     font-size: 50px;
-    color: #00B5E7;
+    color: var(--first-color);
     margin-bottom: 25px;
 }
 .project-box label{
     font-size: 15px;
-    color: #777;
+    color: var(--text-color-second);
     text-align: center;
 }
 .project-box::after, .contact-info::after{
     content: "";
     position: absolute;
     bottom: -100%;
-    background: var(--second-color);
+    background: var(--first-color);
     width: 100%;
     height: 100%;
     transition: .4s;
@@ -366,8 +381,12 @@ h3{
 .project-box:hover.project-box i,
 .project-box:hover.project-box>h3,
 .project-box:hover.project-box>label{
-    color: var(--color-white);
+    color: var(--body-color);
     z-index: 2;
+}
+.project-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 255, 0, 0.3);
 }
 
 /* ----- CONTACT BOX ----- */
@@ -380,10 +399,11 @@ h3{
     padding: 20px 30px;
     width: 100%;
     height: 315px;
-    background: var(--second-color);
+    background: var(--card-bg);
     border-radius: 10px;
     box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
     overflow: hidden;
+    border: 1px solid var(--first-color);
 }
 .contact-info>h2{
     color: var(--color-white);
@@ -393,19 +413,20 @@ h3{
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--color-white);
+    color: var(--text-color-second);
     margin-block: 5px;
 }
 .contact-info p>i{
     font-size: 18px;
+    color: var(--first-color);
 }
 .contact-info::after{
-    background: var(--color-white);
+    background: var(--first-color);
 }
 .contact-info:hover.contact-info h2,
 .contact-info:hover.contact-info p,
 .contact-info:hover.contact-info i{
-    color: #777;
+    color: var(--body-color);
     z-index: 2;
 }
 
@@ -424,35 +445,45 @@ h3{
 .input-field{
     width: 50%;
     height: 55px;
-    background: transparent;
-    border: 2px solid #AAA;
+    background: var(--card-bg);
+    border: 2px solid var(--first-color);
     border-radius: 10px;
     padding-inline: 20px;
     outline: none;
+    color: var(--color-white);
+}
+.input-field::placeholder{
+    color: var(--text-color-second);
 }
 textarea{
     width: 100%;
     height: 250px;
-    background: transparent;
-    border: 2px solid #AAA;
+    background: var(--card-bg);
+    border: 2px solid var(--first-color);
     border-radius: 10px;
     padding: 15px 20px;
     outline: none;
     resize: none;
+    color: var(--color-white);
+}
+textarea::placeholder{
+    color: var(--text-color-second);
 }
 .form-button>.btn{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--second-color);
-    color: var(--color-white);
+    background: var(--first-color);
+    color: var(--body-color);
+    font-weight: 600;
 }
 .form-button>.btn:hover{
-    background: #00B5E7;
+    background: var(--first-color-hover);
 }
 .form-button i{
     font-size: 18px;
     rotate: -45deg;
+    color: var(--body-color);
 }
 
 /* ----- FOOTER BOX ----- */
@@ -462,13 +493,15 @@ footer{
     align-items: center;
     flex-direction: column;
     row-gap: 30px;
-    background: #F8F8F8;
+    background: var(--nav-bg);
     padding-block: 40px 60px;
     text-align: center;
+    border-top: 2px solid var(--first-color);
 }
 .top-footer p{
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 700;
+    color: black;
 }
 .middle-footer .footer-menu{
     display: flex;
@@ -478,16 +511,65 @@ footer{
 }
 .footer_menu_list a{
     text-decoration: none;
-    color: var(--text-color-second);
+    color: black;
     font-weight: 500;
     margin-inline: 20px;
+    transition: .3s;
 }
 .bottom-footer{
     font-size: 14px;
     margin-top: 10px;
+    color: black;
 }
 .bottom-footer p{
     margin-bottom: 5px;
+}
+
+/* ----- ENTERPRISE SPECIFIC STYLES ----- */
+.featured-subtext {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color-second);
+    font-weight: 400;
+    margin: 0.5rem 0;
+    font-style: italic;
+}
+
+.aboutus-subtext {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color-second);
+    font-weight: 400;
+    margin: 0.5rem 0;
+    font-style: italic;
+}
+
+.enterprise-highlight {
+    color: var(--first-color);
+    font-weight: 600;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 40px 0;
+}
+
+.stat-item {
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--first-color);
+    display: block;
+}
+
+.stat-label {
+    color: var(--text-color-second);
+    font-size: 1.1em;
 }
 
 /* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
@@ -516,12 +598,13 @@ footer{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(50, 50, 50, 0.95);
         backdrop-filter: blur(20px);
         width: 100%;
         min-height: 450px;
         height: 90vh;
         transition: .3s;
+        border-top: 2px solid var(--first-color);
     }
     .nav_menu_list{
         flex-direction: column;
@@ -530,6 +613,8 @@ footer{
         display: flex;
         align-items: left;
         justify-content: left;
+        cursor: pointer;
+        color: black;
     }
     
     /* FIXED MOBILE LAYOUT */
@@ -603,9 +688,9 @@ footer{
         width: 80%;
     }
     
-    /* Consistent section spacing for mobile */
-    .section {
-        padding-block: 80px; /* Slightly reduced for mobile but still consistent */
+    .stats-container {
+        flex-direction: column;
+        gap: 30px;
     }
 }
 
@@ -644,14 +729,6 @@ footer{
     .wrapper {
         padding-inline: 5vw;
     }
-    
-    /* Consistent section spacing for small mobile */
-    .section {
-        padding-block: 70px; /* Slightly reduced for small mobile but still consistent */
-    }
-    .top-header {
-        margin-bottom: 2em; /* Further reduced for small screens */
-    }
 }
 
 /* ----- MEDIA QUERY FOR VERY SMALL SCREENS ----- */
@@ -669,9 +746,9 @@ footer{
         width: 100px;
         height: 100px;
     }
-    
-    /* Consistent section spacing for very small screens */
-    .section {
-        padding-block: 60px; /* Further reduced but still consistent */
-    }
+}
+.rupee-icon {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
 }
