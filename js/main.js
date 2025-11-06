@@ -60,3 +60,15 @@ sr.reveal('.form-control', {delay: 500});
 
 //finsurehubcom@gmail.com
 //PraveenDev123@
+
+// ----- CLOSE NAVIGATION MENU WHEN LINK IS CLICKED (MOBILE) -----
+const navLinks = document.querySelectorAll('.nav-menu a');
+const navMenu = document.getElementById('myNavMenu');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (navMenu.classList.contains('responsive')) {
+            navMenu.classList.remove('responsive');
+        }
+    });
+});
