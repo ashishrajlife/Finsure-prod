@@ -192,16 +192,18 @@
         </div>
         <div class="col">
             <div class="form-control">
-                <form name="contact" method="POST" netlify action="./indicators/success.html">
+               <form name="contact" method="POST" netlify action="./indicators/success.html">
                     <div class="form-inputs">
                         <input type="text" class="input-field" placeholder="Name" name="name" required>
                         <input type="email" class="input-field" placeholder="Email" name="email" required>
-                          <input type="tel" class="input-field" placeholder="Phone" name="phone" required>
-                        <input type="text" class="input-field" placeholder="Subject" name="subject" required>
-                        <textarea name="message" placeholder="Message" required></textarea>
-                     <div class="form-button">
-                        <button type="submit" class="btn">Send Message <i class="uil uil-message"></i></button>
                     </div>
+                    <div class="form-inputs">
+                        <input type="tel" class="input-field" placeholder="Phone" name="phone" required>
+                        <input type="text" class="input-field" placeholder="Subject" name="subject" required>
+                    </div>
+                    <textarea name="message" placeholder="Message" required></textarea>
+                    <div class="form-button">
+                        <button type="submit" class="btn">Send Message <i class="uil uil-message"></i></button>
                     </div>
                 </form>
             </div>
