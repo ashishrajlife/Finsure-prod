@@ -72,3 +72,16 @@ navLinks.forEach(link => {
         }
     });
 });
+
+// ----- CONTACT FORM SUBMISSION -----
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('form[name="contact"]');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function() {
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.innerHTML = 'Sending... <i class="uil uil-spinner"></i>';
+            submitBtn.disabled = true;
+        });
+    }
+});
